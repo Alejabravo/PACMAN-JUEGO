@@ -1,0 +1,134 @@
+/* Estilo general del cuerpo */
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor del tablero */
+.game-container, #game {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-template-rows: repeat(10, 40px);
+  margin: 20px auto;
+  gap: 1px;
+  width: max-content;
+}
+
+/* Cada celda del tablero */
+.cell {
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Paredes */
+.wall {
+  background-color: blue;
+}
+
+/* Puntos normales (pellets) */
+.pellet {
+  background-color: black;
+  position: relative;
+}
+
+.pellet::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: yellow;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Power pellet */
+.power-pellet {
+  background-color: black;
+  position: relative;
+}
+
+.power-pellet::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 0 10px 3px yellow;
+  transform: translate(-50%, -50%);
+}
+
+/* Pac-Man */
+.pacman {
+  background-image: url('imagenes/Pacman_HD.png'); /* Boca abierta */
+  background-size: cover;
+  background-position: center;
+  animation: pacman-mouth 0.3s steps(1) infinite;
+}
+
+/* Animación de Pac-Man */
+@keyframes pacman-mouth {
+  0% {
+    background-image: url('imagenes/Pacman_HD.png'); /* Boca abierta */
+  }
+  50% {
+    background-image: url('imagenes/Pacman_HD.png'); /* Boca cerrada */
+  }
+}
+
+/* Fantasmas */
+.ghost {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Fantasmas normales */
+.ghost.red {
+  background-image: url('imagenes/Multimedia.jpg');
+}
+
+.ghost.pink {
+  background-image: url('imagenes/fanazul.png');
+}
+
+/* Fantasma vulnerable */
+.ghost.vulnerable {
+  filter: brightness(0.6);
+  background-image: url('imagenes/Multimedia\ \(1\).jpg') !important;
+}
+
+/* Celda vacía (sin pellets, sin paredes) */
+.empty {
+  background-color: black;
+}
+
+/* Cerezas */
+.cherry {
+  background-color: black;
+  position: relative;
+}
+
+.cherry::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('imagenes/cherry.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

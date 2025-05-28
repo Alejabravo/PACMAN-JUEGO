@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PacMan</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Por si quieres probar rápido sin css externo */
+    #game {
+      display: grid;
+      grid-template-columns: repeat(10, 30px);
+      grid-template-rows: repeat(10, 30px);
+      gap: 2px;
+      margin: 20px auto;
+      width: max-content;
+    }
+    .cell {
+      width: 30px;
+      height: 30px;
+      background-color: black;
+      border-radius: 4px;
+      position: relative;
+    }
+    .wall {
+      background-color: blue;
+    }
+    .pellet {
+      background-color: black;
+    }
+    .pellet::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .power-pellet::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: yellow;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px yellow;
+    }
+    .pacman {
+      background: url('imagenes/pacman.png') center center no-repeat;
+      background-size: contain;
+    }
+    .ghost {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .red {
+      background-image: url('imagenes/ghostred.png');
+    }
+    .pink {
+      background-image: url('imagenes/ghostpink.png');
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color:white; text-align:center;">Pac-Man</h1>
+  <div id="game"></div>
+  <script src="funcionalidad.js"></script>
+</body>
+</html>
+
